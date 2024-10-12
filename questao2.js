@@ -1,13 +1,17 @@
-const prompt = require('prompt-sync')();
 
-// Solicita ao usuário para inserir uma string
-let string = prompt('Digite uma string: ');
+function contarLetraA(str) {
+  let contador = 0;
 
-// Converte a string para minúsculas e depois filtra as ocorrências de 'a'
-let quantidadeA = (string.match(/a/gi) || []).length;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() === 'a') {
+      contador++;
+    }
+  }
 
-if (quantidadeA > 0) {
-  console.log(`A letra 'a' aparece ${quantidadeA} vezes na string.`);
-} else {
-  console.log("A letra 'a' não foi encontrada na string.");
+  return contador;
 }
+
+// Exemplo de uso
+const texto = "A arte de programar é fascinante!";
+const resultado = contarLetraA(texto);
+console.log(`A letra "a" aparece ${resultado} vezes.`);
